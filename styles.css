@@ -1,0 +1,212 @@
+/* Modern responsive styles for the Task Manager app */
+:root {
+  --primary: #4f8cff;
+  --accent: #ffb347;
+  --bg: #f7f9fa;
+  --text: #222;
+  --completed: #b2b2b2;
+  --border-radius: 8px;
+  --shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+main {
+  background: #fff;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  margin-top: 3rem;
+  width: 100%;
+  max-width: 400px;
+}
+h1 {
+  text-align: center;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+}
+form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+input[type="text"] {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+}
+button {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0.75rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+button:hover, button:focus {
+  background: var(--accent);
+  outline: none;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f2f4f7;
+  margin-bottom: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+}
+li.completed label {
+  text-decoration: line-through;
+  color: var(--completed);
+}
+li.completed {
+  background: #e9ecef;
+}
+label {
+  flex: 1;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+.delete-btn {
+  background: #ff4f4f;
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.2s;
+}
+.delete-btn:hover, .delete-btn:focus {
+  background: #d32f2f;
+}
+@media (max-width: 500px) {
+  main {
+    padding: 1rem;
+    margin-top: 1rem;
+    max-width: 98vw;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  input[type="text"], button {
+    font-size: 0.95rem;
+    padding: 0.6rem;
+  }
+}
+/* Dark mode styles */
+.dark-mode {
+  --primary: #90caf9;
+  --accent: #ffd54f;
+  --bg: #181a1b;
+  --text: #f7f9fa;
+  --completed: #757575;
+  background: var(--bg);
+  color: var(--text);
+}
+.dark-mode main {
+  background: #23272b;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.dark-mode li {
+  background: #23272b;
+  color: var(--text);
+}
+.dark-mode li.completed {
+  background: #1a1d1f;
+}
+.dark-mode .filter-btn {
+  background: #23272b;
+  color: var(--primary);
+  border-color: var(--primary);
+}
+.dark-mode .filter-btn[aria-pressed="true"] {
+  background: var(--primary);
+  color: #23272b;
+}
+.dark-mode .delete-btn {
+  background: #d32f2f;
+}
+.dark-mode .delete-btn:hover, .dark-mode .delete-btn:focus {
+  background: #ff4f4f;
+}
+.dark-toggle-btn {
+  background: var(--bg);
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: 50%;
+  padding: 0.5rem 0.7rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+}
+.dark-toggle-btn:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+@media (max-width: 500px) {
+  .dark-toggle-btn {
+    font-size: 1rem;
+    padding: 0.4rem 0.5rem;
+  }
+}
+/* Filter buttons styling */
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+.filter-btn {
+  background: var(--bg);
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: var(--border-radius);
+  padding: 0.5rem 1.1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+}
+.filter-btn[aria-pressed="true"] {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+.filter-btn:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+@media (max-width: 500px) {
+  .filters {
+    gap: 0.3rem;
+    margin-bottom: 0.8rem;
+  }
+  .filter-btn {
+    font-size: 0.95rem;
+    padding: 0.4rem 0.7rem;
+  }
+}
